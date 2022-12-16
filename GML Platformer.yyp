@@ -8,6 +8,7 @@
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"order":0,},
     {"id":{"name":"Spr_invisible_wall","path":"sprites/Spr_invisible_wall/Spr_invisible_wall.yy",},"order":2,},
     {"id":{"name":"Spr_background","path":"sprites/Spr_background/Spr_background.yy",},"order":1,},
+    {"id":{"name":"Spr_player_crouch","path":"sprites/Spr_player_crouch/Spr_player_crouch.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [

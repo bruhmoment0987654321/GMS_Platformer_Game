@@ -10,6 +10,10 @@ key_left = keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
 key_jump = keyboard_check_pressed(vk_space);
 
+//crouch 
+if (keyboard_check(ord("S"))){
+	
+}
 //calculate movement
 
 var _move = key_right - key_left;
@@ -39,5 +43,3 @@ if (place_meeting(x,y+vsp,Obj_wall)){
 	vsp = 0;
 }
 y = y + vsp;
-
-//animating sprite
