@@ -4,6 +4,7 @@
   "name": "GML Platformer",
   "resources": [
     {"id":{"name":"Spr_player","path":"sprites/Spr_player/Spr_player.yy",},"order":0,},
+    {"id":{"name":"Spr_player_jump","path":"sprites/Spr_player_jump/Spr_player_jump.yy",},"order":4,},
     {"id":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},"order":1,},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"order":0,},
     {"id":{"name":"Spr_invisible_wall","path":"sprites/Spr_invisible_wall/Spr_invisible_wall.yy",},"order":2,},
