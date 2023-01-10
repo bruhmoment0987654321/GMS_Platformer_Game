@@ -7,6 +7,7 @@
     {"id":{"name":"sClouds","path":"sprites/sClouds/sClouds.yy",},"order":5,},
     {"id":{"name":"Spr_player","path":"sprites/Spr_player/Spr_player.yy",},"order":7,},
     {"id":{"name":"Spr_player_A","path":"sprites/Spr_player_A/Spr_player_A.yy",},"order":4,},
+    {"id":{"name":"Spr_GreenlandsTileset_Chasersgaming_","path":"sprites/Spr_GreenlandsTileset_Chasersgaming_/Spr_GreenlandsTileset_Chasersgaming_.yy",},"order":10,},
     {"id":{"name":"Spr_player_crouch_walk","path":"sprites/Spr_player_crouch_walk/Spr_player_crouch_walk.yy",},"order":8,},
     {"id":{"name":"Obj_wall","path":"objects/Obj_wall/Obj_wall.yy",},"order":1,},
     {"id":{"name":"Obj_player","path":"objects/Obj_player/Obj_player.yy",},"order":0,},
