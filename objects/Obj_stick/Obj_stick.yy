@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_wall",
+  "name": "Obj_stick",
   "spriteId": {
-    "name": "Spr_invisible_wall",
-    "path": "sprites/Spr_invisible_wall/Spr_invisible_wall.yy",
+    "name": "Spr_rope",
+    "path": "sprites/Spr_rope/Spr_rope.yy",
   },
   "solid": false,
-  "visible": false,
+  "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
