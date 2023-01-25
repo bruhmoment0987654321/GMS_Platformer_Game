@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_room_transition",
+  "name": "Obj_sad",
   "spriteId": {
     "name": "Spr_room_transition",
     "path": "sprites/Spr_room_transition/Spr_room_transition.yy",
