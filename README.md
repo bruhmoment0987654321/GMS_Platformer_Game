@@ -13,7 +13,7 @@ A GML Starter kit for the **Platformer Tutorial (GML) - Parts 1 & 2**
 * My goal is to provide a template that a student can clone to follow along with Shaun and practice using Source Control Management along the way.
 
 # Things I added
-So, I moved the platforms a bit and most of the sprites are made by me
+So, here was the problem making this game. I tried to make my game with the wall-jumps. it didn't work because the video that you suggested had code that caused conflict with one another. So I rehauled my code and used his tutorial instead. Everything about the code works similar. It did help my bug where my player became stuck after jumping but it took a while. I also made the room bigger, added characters with dialog, restart button, and a secret. I just hope you don't get mad at me for using a different code that wasn't assigned to us. 
 ## Credits
 The assets and video tutorials were created by [Shaun Spalding](https://www.youtube.com/c/ShaunSpalding).
 Check out Shaun's amazing collections of videos.
