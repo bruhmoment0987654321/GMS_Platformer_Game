@@ -1,7 +1,6 @@
 ///* @desc establish variables and the values of player gravity, walkking speed and jump height
-
-hsp = 0;
-vsp = 0;
-grv = 0.3;
-walksp = 5;
-jumpsp = 9;
+spd = 4;
+xSpeed = 0;
+ySpeed = 0;
+old_stop = 0;
+stop_function = 0;

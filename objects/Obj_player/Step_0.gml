@@ -1,55 +1,44 @@
 /// @desc Core Player Logic
 
-//player standing still
-image_speed = 0;
+//establishing variables
+var xDirection = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+var jump = keyboard_check_pressed(vk_space);
+var onTheGround = place_meeting(x,y+1,Obj_wall);
 
-//get player inputs
-key_left = keyboard_check(ord("A"));
-key_right = keyboard_check(ord("D"));
-key_jump = keyboard_check_pressed(vk_space);
+//makes it so that the player faces the direction the last button was pressed
+if (xDirection != 0) image_xscale = xDirection;
 
-//calculate movement
-var _move = key_right - key_left;
-hsp = _move * walksp;
-vsp = vsp + grv;
+//moves the player left and right
+xSpeed = xDirection * spd;
 
-if (place_meeting(x,y+1,Obj_wall)) && (key_jump){
-	vsp = -jumpsp
-}
+//making the player get pull down AKA gravity function
+ySpeed++;
 
-// horizontal collision
-if (place_meeting(x+hsp,y,Obj_wall)){
-	
-	while (!place_meeting(x+sign(hsp),y,Obj_wall)){
-		x = x + sign(hsp);
+if (onTheGround){
+	//animation for the walking animation and idle animation
+	if (xDirection != 0) { sprite_index = Spr_player_walk; }
+	else {sprite_index = Spr_player;}
+
+	//making the player JUMP (modifible)(can't spell)
+	if (jump) {
+		ySpeed = -17;	
 	}
-	hsp = 0;
+}else{
+	//jumping animation
+	sprite_index = Spr_player_jump;
 }
-x = x + hsp;
+
+//horizontal collision 
+if (place_meeting(x + xSpeed,y,Obj_wall)){
+	xSpeed = 0;
+}
 
 //vertical collision
-if (place_meeting(x,y+vsp,Obj_wall)){
-	
-	while (!place_meeting(x,y+sign(vsp),Obj_wall)){
-		y = y + sign(hsp);
-	}
-	vsp = 0;
+if (place_meeting(x,y+ySpeed,Obj_wall)){
+	ySpeed = 0;
 }
-y = y + vsp;
+//applying the x and y positions to the player
+x += xSpeed;
+y += ySpeed;
 
-//Animation
-if (!place_meeting(x,y+1,Obj_wall)){
-	sprite_index = Spr_player_A;
-	image_speed = 0;
-	//Jumpin up and down
-	if (vsp > 0)image_index = 1; else image_index = 0;
-}else{
-	image_speed = 1;
-	if (hsp == 0){
-		sprite_index = Spr_player;
-	}else{
-		sprite_index = Spr_player_walk;
-	}
-}
 
-if (hsp != 0) image_xscale = sign(hsp);
