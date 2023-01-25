@@ -1,44 +1,57 @@
-/// @desc Core Player Logic
-
-//establishing variables
 var xDirection = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 var jump = keyboard_check_pressed(vk_space);
-var onTheGround = place_meeting(x,y+1,Obj_wall);
-
-//makes it so that the player faces the direction the last button was pressed
-if (xDirection != 0) image_xscale = xDirection;
-
-//moves the player left and right
-xSpeed = xDirection * spd;
-
-//making the player get pull down AKA gravity function
-ySpeed++;
-
-if (onTheGround){
-	//animation for the walking animation and idle animation
-	if (xDirection != 0) { sprite_index = Spr_player_walk; }
-	else {sprite_index = Spr_player;}
-
-	//making the player JUMP (modifible)(can't spell)
-	if (jump) {
-		ySpeed = -17;	
-	}
-}else{
-	//jumping animation
-	sprite_index = Spr_player_jump;
+var onTheGround = place_meeting(x, y + 1, Obj_wall);
+var onAWall = place_meeting(x-5, y,Obj_wall) - place_meeting(x+5, y,Obj_wall);
+mvtLocked = max(mvtLocked - 1, 0);
+ 
+if (onAWall != 0) ySpeed = min(ySpeed + 1, 2);
+else ySpeed++;
+ 
+if (mvtLocked <= 0) {
+    if (xDirection != 0) image_xscale = xDirection;
+    xSpeed = xDirection * spd;
+ 
+    if (jump) {
+        if (onTheGround) {
+            ySpeed = -17;
+        } 
+    
+        if (onAWall != 0) {
+            ySpeed = -15;
+            xSpeed = onAWall * spd;
+            mvtLocked = 10;
+        }
+    }
 }
-
-//horizontal collision 
-if (place_meeting(x + xSpeed,y,Obj_wall)){
-	xSpeed = 0;
+ 
+if (onTheGround) {
+    if (xDirection != 0) { sprite_index = Spr_player_walk; } 
+    else { sprite_index = Spr_player; }
+} else if (onAWall != 0) {
+    image_xscale = onAWall;
+    sprite_index = Spr_player_wall_jump;
+} else {
+    sprite_index = Spr_player_jump;
 }
-
-//vertical collision
-if (place_meeting(x,y+ySpeed,Obj_wall)){
-	ySpeed = 0;
+ 
+if (place_meeting(x + xSpeed, y,Obj_wall)) { 
+    
+    while (!place_meeting(x + sign(xSpeed), y,Obj_wall)) {
+        x += sign(xSpeed);
+    }
+    xSpeed = 0; 
 }
-//applying the x and y positions to the player
+ 
 x += xSpeed;
+ 
+ 
+if (place_meeting(x, y + ySpeed,Obj_wall)) { 
+    
+    while (!place_meeting(x, y + sign(ySpeed),Obj_wall)) {
+        y += sign(ySpeed);
+    }
+    
+    ySpeed = 0; 
+}
+ 
 y += ySpeed;
-
-
